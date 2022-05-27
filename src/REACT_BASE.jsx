@@ -2,6 +2,9 @@ import './App.css';
 import Zuikis from './Components/REACT_BASE/Zuikis';
 import Propsas from './Components/REACT_BASE/Propsas';
 import { useState } from 'react';
+import Milk from './Components/REACT_BASE/Milk';
+import Cookies from './Components/REACT_BASE/Cookies';
+import RandText from './Components/REACT_BASE/RandText';
 
 function App() {
 
@@ -25,6 +28,9 @@ const blue = () => {
       <button onClick={keistiSpalva}>Kita spalva</button>
       <button onClick={red}>Red</button>
       <button onClick={blue}>Blue</button>
+      <Milk spalva = "white"></Milk>
+      <Cookies spalva = 'yellow'></Cookies>
+      <RandText spalva = 'green'></RandText>
       </header>
     </div>
   );
