@@ -55,6 +55,24 @@
   flex-wrap: wrap;
 }
 
+.kvv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 90px;
+  background-color: crimson;
+  margin: 20px;
+  border-radius: 33px;
+}
+
+.kvcc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .green-field {
   margin: 30px;
   padding: 10px;
