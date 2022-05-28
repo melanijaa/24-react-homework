@@ -1,41 +1,6 @@
 <!--
 1. Sukurti aplikaciją su mygtuku “Pridėti”, kurį paspaudus atsiranda rand 5-10 kvadratukai. Paspaudus dar kartą dar prisideda rand kvadratukų skaičius. Puslapį perkrovus kvadratukų skaičius pasilieka nepakitęs. Padaryti mygtuką “Išvalyti”, kurį paspaudus visi kvadratukai dingsta. Padaryti mygtuką “Atgal”, kurį paspaudus kvadratukų skaičius pasidaro lygus skaičiui, buvusiam prieš paspaudus mygtuką “Pridėti”, o paspaudus dar kartą grįžtama dar vienu žingsniu atgal (t.y. reikia sukurti “undo” funkcionalumą). Puslapiui persikrovus istorija yra užmirštama. Saugoma tik istorija iki puslapiui persikraunant. Į istoriją turi būti pridedami veiksmai tiek iš “Pridėti” tiek iš “Išvalyti” mygtukų paspaudimo.
 
-
-import './App.css';
-import rand from './Functions/rand';
-import { useState } from 'react';
-
-function App() {
-    //statas
-    const [kv, setKv] = useState([]);
-    //
-    // funkcija
-    const prideti = () => {
-        const kiekis = rand(5, 10);
-        const kvadratukai = [];
-        for (let i = 0; i < kiekis; i++) {
-            kvadratukai.push('^o^');//nesvarbu kas cia bus, gali buti 1
-        }
-        setKv(kvadratukai);
-    }
-  return (
-    <div className="App">
-      <header className="App-header">
-      <button onClick={prideti}>Pridėti</button>
-      <div className='kvc'>
-          {
-              kv.map((k, i) => <div className='kv'>{k}</div>)
-          }
-      </div>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-
-
 2. Patobulinti 1 uždavinį taip, kad šalia mygtuko “Atgal” atsirastų select laukelis, kuriame būtų sudedami visi padaryti žingsniai. T.y. jeigu mygtukas “Pridėti” buvo paspaustas 3 kartus select laukelis turi turėti tris pasirinkimus “1 žingsnis”, “2 žingsnis”, “3 žingsnis” ir t.t. Istorija turi būti atstatoma iki konkretaus žingsnio.(vietoj useRef čia naudojamas useState istorijai saugoti)
 
 3. Sukurti komponentą su 3 apskritimais, kurie yra rand spalvų ir mygtuką “Keisti”. Apskritimus DOMe pasižymėti naudojant useRef hooką. Paspaudus mygtuką, panaudoti vanilaJS savybę element.style.background ir pakeisti apskritimų spalvas į kitas random spalvas.
