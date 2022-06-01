@@ -18,6 +18,7 @@ function Form() {
     }
 
     const inputKiek = (e) => {
+        e.preventDefault();
         setnumberInput(e.target.value);
     }
 
