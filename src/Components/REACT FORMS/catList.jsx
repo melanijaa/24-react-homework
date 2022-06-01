@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function Cats() {
 
+
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [isPending, setIsPending] = useState(false);
@@ -36,5 +37,6 @@ function Cats() {
     </form>
     );
 }
+
 
 export default Cats;

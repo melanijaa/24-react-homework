@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function rand(min, max) {
     min = Math.ceil(min);
@@ -9,27 +9,46 @@ function rand(min, max) {
 function Form() {
 
     const [kv, setKv] = useState([]);
-    const [numberInput, setnumberInput] = useState([]);
+    const [number, setNumber] = useState([]);
 
     const add = () => {
+        let k = [];
+        const numberInput = number;
         for (let i = 0; i < numberInput; i++) {
-            setKv(k => [...k, (rand(100, 200))])
+            k = Array.from({length: number});
         }
+        setKv(a => a === null ? [...k] : [...a, ...k])
     }
 
-    const inputKiek = (e) => {
+    const inputNumber = (e) => {
         e.preventDefault();
-        setnumberInput(e.target.value);
+        setNumber(e.target.value);
     }
+
+    const remove = () => {
+        setKv([]);
+    }
+
+    useEffect(() => {
+        setKv(JSON.parse(localStorage.getItem('kv') ?? '[]'));
+      }, []);
+    
+    useEffect(() => {
+        if (null === kv) {
+            return;
+        }
+        localStorage.setItem('kv', JSON.stringify(kv));
+      }, [kv]);
 
     return (
     <form>
         <label>REACT FORM</label>
-        <input type='number' onChange={inputKiek} value={numberInput} required></input>
+        <input type='number' onChange={inputNumber} value={number} required></input>
         <button onClick={add}>ADD</button>
+        <button onClick={remove}>DELETE</button>
         <div className='kvc'>
             {
-            kv.map((k, i) => <div key={i} className="kv">{k}</div>)
+           kv ? kv.map((a, i) => <div key={i} className="kv">{rand(100, 200)}</div>) : null
             }
          </div>
     </form>
